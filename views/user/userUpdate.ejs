@@ -1,0 +1,73 @@
+<% layout ('./layouts/boilerplate') %>
+<%- include('../partials/flash') %>
+<div class="container justify-content-center align-items-center mt-5">
+    <h4 class="text-center text-secondary">Fill the form bellow</h4>
+    <div class="col-8 offset-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <div class="card shadow mb-2">
+            <div class="card-body">
+                <form class="validated-form" action="/myprofile/<%= userProfile._id %>?_method=PUT" method="post" novalidate enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label for="title" class="form-label">Title :</label>
+                        <input class="form-control" type="text" name="user[title]" id="title" value="<%= userProfile.title %>" placeholder="Mr, Mrs, Dr., Engr., Pastor, etc."  required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="fullName" class="form-label">Full Name:</label>
+                        <input class="form-control" type="text" name="user[fullName]" id="fullName" value="<%= userProfile.fullName %>" placeholder="Full Name" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="phone" class="form-label">Phone number:</label>
+                        <input class="form-control" type="text" name="user[phone]" id="phone" value="<%= userProfile.phone %>" placeholder="+23481000000000" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="website" class="form-label">Website <i>(personal or professional if any)</i>:</label>
+                        <input class="form-control" type="text" name="user[website]" id="website" value="<%= userProfile.website %>" placeholder="www.mypersonalweb.com">
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="image" class="form-label">Upload Image:</label>
+                        <input class="bs-custom-file-input form-control" type="file" name="image" id="image">
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="about" class="form-label">About Me</label>
+                        <textarea 
+                            class="form-control" 
+                            name="user[about]" 
+                            id="about" 
+                            placeholder="Breif description of yourself.Add what motivates you if any (this includes but not limited to quotes, events, relationships or individuals)."
+                            cols="10" rows="5"
+                            required
+                        ><%= userProfile.about %></textarea>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <button class="btn btn-primary" type="submit">Update Profile</button>  
+                    </div>                   
+                </form>
+                
+            </div>
+        </div>
+        <p class=" my-2 pb-0">
+            <a href="/myprofile/<%= userProfile._id %>"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-primary p-0 ms-2"
+            >
+                Cancel edit
+            </a>
+        </p>
+    </div>
+</div>

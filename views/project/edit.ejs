@@ -1,0 +1,45 @@
+<% layout ('./layouts/boilerplate') %>
+<%- include('../partials/flash') %>
+<div class="my-5">
+    <h4 class="text-center text-secondary">Edit Project</h4>
+    <div class="col-8 offset-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <div class="card shadow mb-2">
+            <div class="card-body">
+                <form class="validated-form" action="/myprofile/<%= userProfile._id %>/project/<%= project._id %>?_method=PUT" method="post" novalidate>
+                    <div class="mb-2">
+                        <label for="title" class="form-label">Project Title</label>
+                        <input class="form-control" type="text" name="project[title]" id="title" placeholder="Project Name" value="<%= project.title %>" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="client" class="form-label">Client</label>
+                        <input class="form-control" type="text" name="project[client]" id="client" placeholder="Client Name" value="<%= project.client %>" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="form-label">Project Description</label>
+                        <textarea class="form-control" name="project[description]" id="description" cols="10" rows="5" placeholder="Project Description" required><%= project.description %></textarea>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <button class="btn btn-primary" type="submit">Update Project</button>  
+                    </div>                   
+                </form>
+                
+            </div>
+        </div>
+        <p class="mb-0 mt-1 pb-0">
+            <a href="/myprofile/<%= userProfile._id %>/project/<%= project._id %>"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-primary p-0 ms-2"
+            >
+                ...cancel edit
+            </a>
+        </p>
+    </div>
+</div>

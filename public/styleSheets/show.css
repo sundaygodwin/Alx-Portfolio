@@ -1,0 +1,15 @@
+.main{
+    flex: 1;
+}
+.user{
+    height: auto;
+}
+.height{
+    height: 100%;
+}
+.p-image{
+    height: 8rem;
+}
+.s-image{
+    height: 5rem;
+}

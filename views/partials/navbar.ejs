@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/styleSheets/nav.css">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark bg-gradient">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="#">MyPortifolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <% if (currentUser) { %>
+        <a class="nav-link" href="/myprofile/<%= userProfile._id %>">Profile</a>
+        <a class="nav-link" href="/myprofile/<%= userProfile._id %>/addproject">New Project</a>
+        <% } %>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if (!currentUser) { %>
+          <a href="/register" class="nav-link">Sign up</a>
+           <a href="/login" class="nav-link">Login</a>
+         <% } else{%>
+         <a href="/logout" class="nav-link">Logout</a>
+         <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

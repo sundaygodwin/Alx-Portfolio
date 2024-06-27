@@ -1,0 +1,9 @@
+<footer class="footer bg-dark py-3 mt-auto bg-gradient">
+    <div class="container text-center">
+        <% if (currentUser) { %>
+            <span class="text-muted">&copy;<%= userProfile.username %> 2024</span>
+        <% } else{ %>
+            <span class="text-muted">&copy;Portifolio 2024</span>
+        <% } %>
+    </div>
+</footer>

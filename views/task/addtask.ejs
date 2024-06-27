@@ -1,0 +1,44 @@
+<% layout ('./layouts/boilerplate') %>
+<div class="my-5">
+    <h4 class="text-center text-secondary">Add task to project</h4>
+    <div class="col-md-4 offset-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <form class="validated-form" action="/myprofile/<%= userProfile._id %>/project/<%= project._id %>" method="post" novalidate>
+                    <div class="mb-2">
+                        <label for="tools" class="form-label">Requirement: </label>
+                        <input class="form-control" type="text" name="task[tools]" id="tools" placeholder="Required tool(s)" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="duration" class="form-label">Duration <i>(days)</i>:</label>
+                        <input class="form-control" type="number" name="task[duration]" id="duration" placeholder="Duration" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="form-label">Task brief:</label>
+                        <textarea class="form-control" name="task[description]" id="description" cols="10" rows="5" placeholder="Task Description" required></textarea>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                      <button class="btn btn-primary" type="submit">Add Task</button>  
+                    </div>                   
+                </form>
+            </div>
+        </div>
+        <p class="mt-1 mb-0 py-0">
+            <a 
+                href="/myprofile/<%= userProfile._id %>/project/<%= project._id %>"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-primary p-1 py-0 ms-2"
+            >
+                ...back to project
+            </a>
+        </p>
+    </div>
+</div>

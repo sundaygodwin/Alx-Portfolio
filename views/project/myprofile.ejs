@@ -1,0 +1,41 @@
+<% layout ('./layouts/boilerplate') %>
+<link rel="stylesheet" href="/styleSheets/show.css">
+<div class="d-flex flex-md-row flex-column ps-0 ms-0 bg-body main">
+    <section class="col-md-3 col-lg-2 ms-0 p-2 bg-body-secondary bg-gradient">
+        <div class="p-2 d-flex flex-column align-items-center">
+            <img src="<%= userProfile.image.url %>" class="img-thumbnail mt-2 mb-1 p-image" alt="Profile picture">
+            <h5 class="text-muted text-center mb-1"><%= userProfile.title %> <%= userProfile.fullName %></h5>
+            <a 
+                href="/<%= userProfile.website %>"
+                target="_parent"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-primary p-1 mb-3"
+            >
+                <em>My Website</em>
+            </a>
+            <a class="btn btn-primary text-center text-white" href="/myprofile/<%= userProfile._id %>/update">Update Profile</a>
+        </div>
+    </section>
+    <section class="col-md-7 col-lg-8 m-3 mt-5 p-1">
+        <%- include('../partials/flash') %>
+        <h4 class="text-muted">My Projects</h4>
+        <ul class="list-group list-group-flush">
+            
+            <% for( let project of userProfile.projects ) { %>
+                <li class="list-group-item d-flex justify-content-between align-items-start mt-1">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold"><%= project.title %></div>
+                        <%= project.client %>
+                    </div>
+                    <a class="badge text-bg-primary rounded-pill text-center text-white p-2 text-decoration-none" href="/myprofile/<%= userProfile._id %>/project/<%= project._id %>">
+                        view 
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+        <div class="mt-2">
+            <a class="btn btn-primary text-center text-white" href='/myprofile/<%= userProfile._id %>/addproject'>New project</a>
+        </div>
+    </section>
+</div>
+        
+    

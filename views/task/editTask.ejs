@@ -1,0 +1,45 @@
+<% layout ('./layouts/boilerplate') %>
+<%- include('../partials/flash') %>
+<div class="container justify-content-center align-items-center mt-5">
+    <h4 class="text-center text-secondary">Update task</h4>
+    <div class="col-8 offset-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <div class="card shadow mb-2">
+            <div class="card-body">
+                <form class="validated-form" action="/myprofile/<%= userProfile._id %>/project/<%= project._id %>/tasks/<%= task._id %>?_method=PUT" method="post" novalidate>
+                    <div class="mb-2">
+                        <label for="tools" class="form-label">Requirement: </label>
+                        <input class="form-control" type="text" name="task[tools]" id="tools" placeholder="Required tool(s)" value="<%= task.tools %>" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="duration" class="form-label">Duration <i>(days)</i>:</label>
+                        <input class="form-control" type="number" name="task[duration]" id="duration" placeholder="Duration" value="<%= task.duration %>" required>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="form-label">Task brief:</label>
+                        <textarea class="form-control" name="task[description]" id="description" cols="10" rows="5" placeholder="Task Description" required><%= task.description %></textarea>
+                        <div class="valid-feedback mb-1">
+                            Nice one!
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                      <button class="btn btn-primary" type="submit">Update Task</button>  
+                    </div>                   
+                </form>
+            </div>
+        </div>
+        <p class="mt-1 mb-0 py-0">
+            <a 
+                href="/myprofile/<%= userProfile._id %>/project/<%= project._id %>"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-primary p-1 py-0 ms-2"
+            >
+                ...cancel edit
+            </a>
+        </p>
+    </div>
+</div>
