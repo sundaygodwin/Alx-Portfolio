@@ -22,6 +22,7 @@ const ExpressMongoSanitize = require('express-mongo-sanitize');
 //support files
 const User = require('./models/user');
 const ExpressError = require('./utils/ExpressError');
+const Features = require('./seeds/featureSeed')
 
 // routes file
 const profileRoute = require('./routes/profileRoute');
@@ -73,7 +74,7 @@ const styleSrcUrls = [
     "https://api.mapbox.com/",
     "https://use.fontawesome.com/",
     "https://fonts.googleapis.com/",
-    "https://cdn.jsdelivr.net",
+    "https://cdn.jsdelivr.net/",
     "https://getbootstrap.com/",
     "https://fonts.gstatic.com",
     "https://fonts.googleapis.com/"
@@ -108,7 +109,8 @@ app.use(
                 "data:",
                 "https://images.unsplash.com/",
                 "https://res.cloudinary.com/ddkdhfgaq/",
-                "https://media.istockphoto.com/"
+                "https://media.istockphoto.com/",
+                "http://www.w3.org/"
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
@@ -175,11 +177,12 @@ app.set('view engine', 'ejs');
 
 //  ROUTES
 app.get('/', async (req, res)=>{
+    const features = Features;
     if(req.isAuthenticated()){
         const userProfile = await User.findById(req.user._id)
         res.render("home", { userProfile });
     }else{
-        res.render("home"); 
+        res.render("home", {features}); 
     }
 });
 // USER

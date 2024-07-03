@@ -9,15 +9,19 @@
       <div class="navbar-nav">
         <a class="nav-link" href="/">Home</a>
         <% if (currentUser) { %>
-        <a class="nav-link" href="/myprofile/<%= userProfile._id %>">Profile</a>
-        <a class="nav-link" href="/myprofile/<%= userProfile._id %>/addproject">New Project</a>
+          <a class="nav-link" href="/myprofile/<%= userProfile._id %>">Profile</a>
+          <a class="nav-link" href="/myprofile/<%= userProfile._id %>/addproject">New Project</a>
+        <% } else{ %>
+          <a class="nav-link" href="#intro">Welcome</a>
+          <a class="nav-link" href="#features">New Project</a>
+          <a class="nav-link" href="#about">About</a>
         <% } %>
       </div>
       <div class="navbar-nav ms-auto">
         <% if (!currentUser) { %>
           <a href="/register" class="nav-link">Sign up</a>
-           <a href="/login" class="nav-link">Login</a>
-         <% } else{%>
+          <a href="/login" class="nav-link">Login</a>
+        <% } else{%>
          <a href="/logout" class="nav-link">Logout</a>
          <% } %>
       </div>

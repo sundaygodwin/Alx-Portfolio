@@ -2,5 +2,14 @@
     border-radius: 35px;
 }
 .main{
-    flex: 1
+    flex: 1;
+}
+.feature{
+    height: 15rem;
+}
+.developer-img{
+    border: none;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
 }
