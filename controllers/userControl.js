@@ -1,5 +1,4 @@
 const User = require('../models/user');
-
 //  REGISTER
 module.exports.registerForm = (req, res)=>{
     res.render('user/register')
@@ -20,7 +19,6 @@ module.exports.registerUser = async (req, res)=>{
         res.redirect('/register')
     }
 };
-
 // LOGIN
 module.exports.loginForm = (req, res)=>{
     res.render('user/login')

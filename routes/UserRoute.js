@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const localStrategy = require('passport-local');
 
-
 //support files
 const CatchAsync = require('../utils/catchAsync')
 const User = require('../models/user');
