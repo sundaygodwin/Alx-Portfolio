@@ -113,6 +113,8 @@ app.use(
                 "http://www.w3.org/"
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
+            // Allow all sources to embed this site
+            frameAncestors: ["*"],
         },
     })
 );
